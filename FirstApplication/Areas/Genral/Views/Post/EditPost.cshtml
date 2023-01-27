@@ -1,0 +1,63 @@
+﻿@model FirstApplication.Models.PostVm
+<!-- Edit -->
+
+<div @*class="modal fade" id="myModal"*@>
+    <div class="modal-dialog  modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Your Post</h4>
+                <a class="close" asp-action="Allposts" asp-controller="Post" asp-area="Genral">&times;</a>
+
+            </div>
+            <form asp-controller="Post" asp-action="EditPost" asp-area="Genral" enctype="multipart/form-data">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="post-block">
+                        <div class="post-block mb-3">
+                            <div class="mr-2">
+                                <a href="#!" class="text-dark"><img src="/ImageProfile/@Model.Image" style="width:8%;border-radius:50%" alt="User"></a>
+                                <h5 class="mb-0"><a href="#!" class="text-dark">Kiran Acharya</a></h5>
+                            </div>
+                        </div>
+                        <div class="post-block__content mb-2">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" id="exampleInputFirstName" value="@Model.Description" asp-for="Description">
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="text" asp-for="Image" style="display:none";/>
+                                <input type="file" name="Image">
+                            </div>
+                            <div class="form-group">
+                                <label>Your Feeling</label>
+                                <select name="FeelingId" asp-for="FeelingId" asp-items="@(new SelectList(@ViewBag.Feelings ,"Id","YourFeeling")) " class="custom-select">
+                                    <option selected>Choose Your Feelings</option>
+                                </select>
+                            </div>
+                            @*<p>@Model.Description</p>*@
+                            @*<img src="~/ImageProfile/@Model.Image" class="w-100" alt="">*@
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save Change</button>
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal" asp-action="Allposts" asp-controller="Post" asp-area="Genral">Cancel Edit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        alert("khaled")
+    })
+</script>
+

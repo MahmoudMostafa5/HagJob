@@ -1,0 +1,49 @@
+﻿@model FirstApplication.Models.PostVm
+    
+<link href="~/assets/css/fontawesome-all.min.css" rel="stylesheet" />
+
+<form asp-controller="Post" asp-action="CreatePost" asp-area="Genral">
+    <textarea class="form-control" asp-for="Description" rows="5" id="comment"></textarea>
+
+    <input type="file" class="form-control my-1" name="image" />
+    @*<button id="button" type="button" name="button" class="btn btn-outline-info m-1" onclick="thisFileUpload();"><i class="fas fa-images"></i></button>
+        <input type="file" id="file" name="image" style="display:none;" />*@
+
+    <button id="button" type="button" name="button" class="btn btn-outline-info my-1" onclick="thisFileUpload();"><i class="fas fa-tags"></i></button>
+    <input type="file" id="file" name="image" style="display:none;" />
+
+    <button id="button" type="button" name="button" class="btn btn-outline-info my-1"><i class="fas fa-smile"></i></button>
+    <input style="display:none;" />
+
+    @*<button id="toggle" class="btn btn-outline-info m-1"><i class="fas fa-smile"></i></button>*@
+
+    @*<div id="feelings" class="d-none">
+        <select name="FeelingId" asp-for="FeelingId" asp-items="@(new SelectList(@ViewBag.Feelings ,"Id","YourFeeling")) " class="custom-select"></select>
+    </div>*@
+    @*<button class="btn btn-outline-info" id="toggle"><i class="fas fa-smile"></i></button>*@
+
+    @*<div class="modal-footer">
+        <button type="submit" class="btn btn-success">Post</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" href="#feelings">Cancel Post</button>
+    </div>*@
+    @*<input type="submit" class="btn btn-primary btn" value="Publish" />*@
+</form>
+
+<script>
+    //this function for upload image
+    function thisFileUpload() {
+        document.getElementById("file").click();
+    };
+
+    //this function for show feelings
+    const targetDiv = document.getElementById("feelings");
+    const btn = document.getElementById("toggle");
+    btn.onclick = function () {
+        if (targetDiv.style.display !== "none") {
+            targetDiv.style.display = "none";
+        }
+        else {
+            targetDiv.style.display = "block";
+        }
+    };
+</script>

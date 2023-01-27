@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FirstApplication.Models.JobVm>
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">My Upload Jbs</h1>
+    </div>
+    </div>
+    <div class="table-responsive text-nowrap" >
+        <!--Table-->
+        <table class="table table-striped">
+
+            <!--Table head-->
+            <thead style="text-align:center">
+                <tr>
+                    <th>Name</th>
+                    <th>Requriements</th>
+                    <th>Company Name</th>
+                    <th>Location</th>
+                    <th>Experience</th>
+                    <th>Department</th>
+                    <th>Published Date</th>
+                    <th>Statues </th>
+                    <th>Job Decription </th>
+                    <th>Skills </th>
+                    <th>Eductaion </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+                @foreach (var item in Model)
+                {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Requriments</td>
+        <td>@item.CompanyName</td>
+        <td>@item.Location</td>
+        <td>@item.Experience</td>
+        <td>@item.DepId</td>
+        <td>@item.Date</td>
+        <td>@item.Statues</td>
+        <td>@item.JobDescription</td>
+        <td>@item.Skills</td>
+        <td>@item.Education</td>
+        <td>
+            <a asp-action="Update" asp-route-id="@item.Job_Id" class="btn btn-outline-primary btn-sm">Update Job</a>
+            <a asp-action="AllQuestionOfMyUploadJob" asp-area="Genral" asp-controller="QuestionJobs"  class="btn btn-outline-primary btn-sm">View Questions</a>
+            <a asp-action="Details" asp-route-id="@item.Job_Id" class="btn btn-outline-primary btn-sm">Details</a>
+            <a asp-action="Delete" asp-route-id="@item.Job_Id" class="btn btn-outline-primary btn-sm">Delete</a>
+            <a asp-action="BlockApply" asp-route-id="@item.Job_Id" class="btn btn-outline-primary btn-sm">Block Apply</a>
+        </td>
+    </tr>}
+
+            </tbody>
+            <!--Table body-->
+
+
+        </table>
+        <!--Table-->
+        </div>

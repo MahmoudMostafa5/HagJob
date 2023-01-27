@@ -1,0 +1,33 @@
+﻿@model FirstApplication.Models.AdressUserVM
+@*@using FirstApplication.DB;
+    @using Microsoft.AspNetCore.Identity;
+    @inject SignInManager<ApplicationUser> sing*@
+<form asp-controller="UserAdressing" asp-action="AddAdressToUser" asp-area="Admin" method="post" >
+
+    <input type="hidden" asp-for="UserId" value="@ViewBag.currentUserId" />
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label> Contry Name</label>
+        <input type="text" asp-for="Country" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Contry Name">
+
+    </div>
+    <div class="form-group">
+        <label> City Name</label>
+        <input type="text" asp-for="City" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+               placeholder="Enter Your City Name">
+    </div>
+    
+    <div class="form-group">
+        <label> Street Name</label>
+        <input type="text" asp-for="Street" class="form-control" id="exampleInputPassword" placeholder="Please Enter Your Street Name">
+    </div>
+    <div class="form-group">
+        <label> Zip-Code</label>
+        <input type="text" asp-for="ZipCode" class="form-control" id="exampleInputPassword" placeholder="Please Enter Your Zip-Code">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" id="btn" class="btn btn-primary btn-block">Save</button>
+    </div>
+
+</form>
